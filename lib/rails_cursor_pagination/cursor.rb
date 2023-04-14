@@ -18,7 +18,7 @@ module RailsCursorPagination
       # @return [Cursor]
       def from_record(record:, order_field: :id)
         new(id: record.id, order_field: order_field,
-            order_field_value: record[order_field])
+            order_field_value: record.send(order_field))
       end
 
       # Decode the provided encoded cursor. Returns an instance of this
